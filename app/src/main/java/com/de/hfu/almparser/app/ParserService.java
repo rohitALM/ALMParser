@@ -11,6 +11,8 @@ import android.content.Intent;
 public class ParserService extends IntentService{
 
     public ParserService() {
+
+
         super("ParserService");
     }
 
