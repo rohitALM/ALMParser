@@ -10,18 +10,15 @@ import android.widget.Toast;
 
 public class ActivityLifecycle extends Activity {
 
-    ParserBroadcastReceiver intentReceiver = new ParserBroadcastReceiver();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
-        IntentFilter intentFilter =
-                new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
-        intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
-        registerReceiver(intentReceiver, intentFilter);
-        Log.d("OnCreate", "Receiver Registered");
+        startService(new Intent(ActivityLifecycle.this,
+                DeviceStatusService.class));
+
 
 
     }

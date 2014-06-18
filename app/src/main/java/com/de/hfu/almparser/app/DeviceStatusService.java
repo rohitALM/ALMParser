@@ -2,12 +2,16 @@ package com.de.hfu.almparser.app;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
 
 public class DeviceStatusService extends Service {
+
+    ParserBroadcastReceiver intentReceiver = new ParserBroadcastReceiver();
+
     public DeviceStatusService() {
     }
 
@@ -24,6 +28,12 @@ public class DeviceStatusService extends Service {
         Toast.makeText(this, "Service created ...",
                 Toast.LENGTH_LONG).show();
         Log.d("Msg", " ........Service Created........");
+
+        IntentFilter intentFilter =
+                new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
+        intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        registerReceiver(intentReceiver, intentFilter);
+        Log.d("OnCreate - Service", "Receiver Registered");
 
 
     }
