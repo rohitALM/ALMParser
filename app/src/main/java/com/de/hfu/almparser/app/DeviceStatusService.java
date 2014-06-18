@@ -3,11 +3,9 @@ package com.de.hfu.almparser.app;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-<<<<<<< Updated upstream
-=======
 import android.util.Log;
 import android.widget.Toast;
->>>>>>> Stashed changes
+
 
 public class DeviceStatusService extends Service {
     public DeviceStatusService() {
@@ -18,15 +16,14 @@ public class DeviceStatusService extends Service {
 
         return null;
     }
-<<<<<<< Updated upstream
-=======
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         Toast.makeText(this, "Service created ...",
                 Toast.LENGTH_LONG).show();
-        Log.d("Msg"," ........Service Created........");
+        Log.d("Msg", " ........Service Created........");
 
 
     }
@@ -36,10 +33,9 @@ public class DeviceStatusService extends Service {
         super.onDestroy();
         Toast.makeText(this, "Service destroyed ...",
                 Toast.LENGTH_LONG).show();
-       Log.d("Msg"," ........Service destroyed........");
+        Log.d("Msg", " ........Service destroyed........");
 
     }
 
 
->>>>>>> Stashed changes
 }
