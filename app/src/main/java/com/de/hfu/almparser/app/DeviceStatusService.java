@@ -41,9 +41,11 @@ public class DeviceStatusService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        unregisterReceiver(intentReceiver);
         Toast.makeText(this, "Service destroyed ...",
                 Toast.LENGTH_LONG).show();
         Log.d("Msg", " ........Service destroyed........");
+        Log.d("Msg", " ........Receiver destroyed........");
 
     }
 
