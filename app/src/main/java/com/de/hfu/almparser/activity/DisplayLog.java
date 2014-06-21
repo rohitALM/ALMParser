@@ -18,7 +18,11 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
+/**
+ * Class to fetch event log information from DB and display it to the user
+ *
+ * @author Rohit
+ */
 public class DisplayLog extends ActionBarActivity {
 
     ALMDB dba;

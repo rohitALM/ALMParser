@@ -8,6 +8,9 @@ import android.widget.Toast;
 import com.de.hfu.almparser.app.DeviceStatusService;
 
 /**
+ * Entrypoint Activity
+ * Initializes Device Parse service
+ *
  * @author Rohit
  */
 public class ActivityLifecycle extends Activity {
@@ -26,7 +29,11 @@ public class ActivityLifecycle extends Activity {
         startActivity(i);
 
 
+    }
 
+    public void onResume(Bundle savedInstanceState) {
+        Intent i = new Intent(ActivityLifecycle.this, Logentry1Activity.class);
+        startActivity(i);
     }
 
 
