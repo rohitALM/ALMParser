@@ -15,6 +15,7 @@ public class ParserBroadcastReceiver extends BroadcastReceiver {
         String action = intent.getAction();
         Log.d("Action Name" , action);
         if (action.equals(Intent.ACTION_PACKAGE_ADDED)) {
+            intent.getData();
             Log.d("OnReceive", "Action Received - Package Added");
 
         } else {

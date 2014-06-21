@@ -2,12 +2,12 @@ package com.de.hfu.almparser.app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
-
+/**
+ * @author Rohit
+ */
 public class ActivityLifecycle extends Activity {
 
 
