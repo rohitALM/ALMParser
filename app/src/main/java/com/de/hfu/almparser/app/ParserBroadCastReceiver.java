@@ -13,7 +13,7 @@ public class ParserBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
-        Log.d("Action Name" , action);
+        Log.d("Action Name", action);
         if (action.equals(Intent.ACTION_PACKAGE_ADDED)) {
             intent.getData();
             Log.d("OnReceive", "Action Received - Package Added");
