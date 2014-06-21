@@ -4,5 +4,7 @@
     <string name="app_name">ALMParser</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_logentry1">Logentry1Activity</string>
+    <string name="title_activity_display_log">DisplayLog</string>
 
 </resources>

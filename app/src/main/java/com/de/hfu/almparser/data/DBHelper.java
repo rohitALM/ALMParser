@@ -17,7 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
             Constants.KEY_ID + " integer primary key autoincrement, " +
             Constants.TITLE_NAME + " text not null, " +
             Constants.CONTENT_NAME + " text not null, " +
-            Constants.DATE_NAME + " text not null);";
+            Constants.DATE_NAME + " long);";
 
 
     public DBHelper(Context context, String name, CursorFactory factory,
