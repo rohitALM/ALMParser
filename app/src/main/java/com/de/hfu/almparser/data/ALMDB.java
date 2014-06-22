@@ -36,18 +36,18 @@ public class ALMDB {
     }
 
     public long insertdiary(String event_type, String event_specific_data) {
-//        try {
+        try {
             ContentValues newTaskValue = new ContentValues();
             newTaskValue.put(Constants.TITLE_NAME, event_type);
             newTaskValue.put(Constants.CONTENT_NAME, event_specific_data);
             newTaskValue.put(Constants.DATE_NAME,
                     java.lang.System.currentTimeMillis());
             return db.insert(Constants.TABLE_NAME, null, newTaskValue);
-//        } catch (SQLiteException ex) {
-//            Log.v("Insert into database exception caught",
-//                    ex.getMessage());
-//            return -1;
-//        }
+        } catch (SQLiteException ex) {
+            Log.v("Insert into database exception caught",
+                    ex.getMessage());
+            return -1;
+        }
     }
 
     public Cursor getdiaries() {

@@ -7,7 +7,9 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
-
+/**
+ * @author Rohit
+ */
 public class DeviceStatusService extends Service {
 
     ParserBroadcastReceiver intentReceiver = new ParserBroadcastReceiver();
