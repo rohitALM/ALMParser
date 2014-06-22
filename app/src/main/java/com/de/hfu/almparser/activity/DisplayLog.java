@@ -1,13 +1,15 @@
 package com.de.hfu.almparser.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.de.hfu.almparser.app.R;
@@ -23,16 +25,25 @@ import java.util.Date;
  *
  * @author Rohit
  */
-public class DisplayLog extends ActionBarActivity {
+public class DisplayLog extends Activity {
 
     ALMDB dba;
     DiaryAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        dba = new ALMDB(this);
+        dba.open();
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_display_log);
+        super.onCreate(savedInstanceState);
+        myAdapter = new DiaryAdapter(this);
+        //this.setListAdapter(myAdapter);
+        ListView list1 = (ListView) findViewById(R.id.list_item);
+        list1.setAdapter(myAdapter);
+        list1.setAdapter(myAdapter);
     }
 
     private class MyDiary {
@@ -72,6 +83,9 @@ public class DisplayLog extends ActionBarActivity {
                             Date(c.getLong(c.getColumnIndex(
                             Constants.DATE_NAME))).getTime());
                     MyDiary temp = new MyDiary(title, content, datedata);
+                    Log.d("title", title);
+                    Log.d("content", content);
+                    Log.d("datedata", datedata);
                     diaries.add(temp);
                 } while (c.moveToNext());
             }
