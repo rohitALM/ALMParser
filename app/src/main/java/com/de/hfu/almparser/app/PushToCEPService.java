@@ -7,6 +7,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 /**
+ * Placeholder Service
+ * Will push events to webservice endpoint
+ * <p/>
  * Created by Rohit on 18-06-2014.
  */
 public class PushToCEPService extends Service {

@@ -2,6 +2,7 @@ package com.de.hfu.almparser.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.de.hfu.almparser.app.DeviceStatusService;
 import com.de.hfu.almparser.app.R;
 import com.de.hfu.almparser.data.ALMDB;
 import com.de.hfu.almparser.data.Constants;
@@ -37,12 +39,26 @@ public class DisplayLog extends Activity {
 
         super.onCreate(savedInstanceState);
 
+        startService(new Intent(DisplayLog.this,
+                DeviceStatusService.class));
+
         setContentView(R.layout.activity_display_log);
         super.onCreate(savedInstanceState);
         myAdapter = new DiaryAdapter(this);
+        myAdapter.notifyDataSetChanged();
         //this.setListAdapter(myAdapter);
         ListView list1 = (ListView) findViewById(R.id.list_item);
         list1.setAdapter(myAdapter);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        myAdapter = new DiaryAdapter(this);
+        myAdapter.notifyDataSetChanged();
+        //this.setListAdapter(myAdapter);
+        ListView list1 = (ListView) findViewById(R.id.list_item);
         list1.setAdapter(myAdapter);
     }
 
@@ -111,6 +127,7 @@ public class DisplayLog extends Activity {
                 v = mInflater.inflate(R.layout.logrow, null);
                 holder = new ViewHolder();
                 holder.mTitle = (TextView) v.findViewById(R.id.name);
+                holder.mContent = (TextView) v.findViewById(R.id.eventcontent);
                 holder.mDate = (TextView) v.findViewById(R.id.datetext);
                 v.setTag(holder);
             } else {
@@ -118,6 +135,7 @@ public class DisplayLog extends Activity {
             }
             holder.mdiary = getItem(arg0);
             holder.mTitle.setText(holder.mdiary.title);
+            holder.mContent.setText(holder.mdiary.content);
             holder.mDate.setText(holder.mdiary.recorddate);
             v.setTag(holder);
             return v;
@@ -126,6 +144,7 @@ public class DisplayLog extends Activity {
         public class ViewHolder {
             MyDiary mdiary;
             TextView mTitle;
+            TextView mContent;
             TextView mDate;
         }
     }

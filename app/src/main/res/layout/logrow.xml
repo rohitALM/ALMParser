@@ -15,10 +15,19 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/datetext"
+        android:id="@+id/eventcontent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
         android:text="Date Recorded"
         android:textSize="14dip" />
+
+    <TextView
+        android:id="@+id/datetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventcontent"
+        android:text="Date Recorded"
+        android:textSize="14dip" />
+
 </RelativeLayout>
