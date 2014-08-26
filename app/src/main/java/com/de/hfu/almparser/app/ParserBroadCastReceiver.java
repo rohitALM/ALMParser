@@ -20,7 +20,7 @@ import java.io.IOException;
 /**
  * Created by Rohit on 17-06-2014.
  */
-public class ParserBroadcastReceiver extends BroadcastReceiver {
+public class ParserBroadCastReceiver extends BroadcastReceiver {
 
     ALMDB dba;
 
@@ -55,7 +55,7 @@ public class ParserBroadcastReceiver extends BroadcastReceiver {
         StrictMode.setThreadPolicy(policy);
 
         HttpClient httpClient = new DefaultHttpClient();
-        HttpPost post = new HttpPost("http://192.168.178.61:8080/ALMCep/webapi/myresource/");
+        HttpPost post = new HttpPost("http://141.28.129.17:8080/ALMCep/webapi/myresource/");
         post.setHeader("content-type", "application/json; charset=UTF-8");
 
         JSONObject dato = new JSONObject();

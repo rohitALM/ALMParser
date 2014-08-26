@@ -15,7 +15,7 @@
             android:exported="true" />
 
         <receiver
-            android:name=".ParserBroadcastReceiver"
+            android:name=".ParserBroadCastReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />

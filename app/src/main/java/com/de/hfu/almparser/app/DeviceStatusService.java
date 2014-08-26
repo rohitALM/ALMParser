@@ -12,7 +12,7 @@ import android.widget.Toast;
  */
 public class DeviceStatusService extends Service {
 
-    ParserBroadcastReceiver intentReceiver = new ParserBroadcastReceiver();
+    ParserBroadCastReceiver intentReceiver = new ParserBroadCastReceiver();
 
     public DeviceStatusService() {
     }
