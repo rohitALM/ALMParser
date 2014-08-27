@@ -29,16 +29,24 @@ import java.util.Date;
  */
 public class DisplayLog extends Activity {
 
+    // To connect with DB
     ALMDB dba;
     DiaryAdapter myAdapter;
 
+    /**
+     * Called when the
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Initialize the DB
         dba = new ALMDB(this);
         dba.open();
 
         super.onCreate(savedInstanceState);
 
+        // Start the service which listens for packages being added or removed
         startService(new Intent(DisplayLog.this,
                 DeviceStatusService.class));
 
@@ -46,22 +54,27 @@ public class DisplayLog extends Activity {
         super.onCreate(savedInstanceState);
         myAdapter = new DiaryAdapter(this);
         myAdapter.notifyDataSetChanged();
-        //this.setListAdapter(myAdapter);
+        //Display event information from DB
         ListView list1 = (ListView) findViewById(R.id.list_item);
         list1.setAdapter(myAdapter);
 
     }
 
+    /**
+     * On Resume - refresh display from DB
+     */
     @Override
     public void onResume() {
         super.onResume();
         myAdapter = new DiaryAdapter(this);
         myAdapter.notifyDataSetChanged();
-        //this.setListAdapter(myAdapter);
         ListView list1 = (ListView) findViewById(R.id.list_item);
         list1.setAdapter(myAdapter);
     }
 
+    /**
+     * Bean holding event information
+     */
     private class MyDiary {
         public String title;
         public String content;
@@ -74,6 +87,9 @@ public class DisplayLog extends Activity {
         }
     }
 
+    /**
+     * Adapter to fill display information
+     */
     private class DiaryAdapter extends BaseAdapter {
         private LayoutInflater mInflater;
         private ArrayList<MyDiary> diaries;
@@ -84,6 +100,9 @@ public class DisplayLog extends Activity {
             getdata();
         }
 
+        /**
+         * Gets data from DB
+         */
         public void getdata() {
             Cursor c = dba.getdiaries();
             startManagingCursor(c);
@@ -120,6 +139,14 @@ public class DisplayLog extends Activity {
             return i;
         }
 
+        /**
+         * Inflates the view with data from DB
+         *
+         * @param arg0
+         * @param arg1
+         * @param arg2
+         * @return
+         */
         public View getView(int arg0, View arg1, ViewGroup arg2) {
             final ViewHolder holder;
             View v = arg1;

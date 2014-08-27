@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.Toast;
 
 /**
+ * Service which listens for event change information
+ *
  * @author Rohit
  */
 public class DeviceStatusService extends Service {
@@ -23,14 +24,13 @@ public class DeviceStatusService extends Service {
         return null;
     }
 
-
+    /**
+     * Register Intent to listen for package add and remove on creation of service
+     */
     @Override
     public void onCreate() {
         super.onCreate();
-        Toast.makeText(this, "Service created ...",
-                Toast.LENGTH_LONG).show();
         Log.d("Msg", " ........Service Created........");
-
         IntentFilter intentFilter =
                 new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
         intentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
@@ -40,12 +40,13 @@ public class DeviceStatusService extends Service {
 
     }
 
+    /**
+     * Unregister receiver on destroy
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(intentReceiver);
-        Toast.makeText(this, "Service destroyed ...",
-                Toast.LENGTH_LONG).show();
         Log.d("Msg", " ........Service destroyed........");
         Log.d("Msg", " ........Receiver destroyed........");
 

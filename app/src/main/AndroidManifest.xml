@@ -27,9 +27,6 @@
         </receiver>
 
         <activity
-            android:name="com.de.hfu.almparser.activity.Logentry1Activity"
-            android:label="@string/title_activity_logentry1"></activity>
-        <activity
             android:name="com.de.hfu.almparser.activity.DisplayLog"
             android:label="Device Event Viewer">
             <intent-filter>

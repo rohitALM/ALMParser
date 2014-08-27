@@ -1,6 +1,8 @@
 package com.de.hfu.almparser.data;
 
 /**
+ * Stores DB constants
+ *
  * Created by Rohit on 21-06-2014.
  */
 public class Constants {

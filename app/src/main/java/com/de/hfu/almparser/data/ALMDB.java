@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 /**
+ * Manages DB instance
+ *
  * Created by Rohit on 21-06-2014.
  */
 public class ALMDB {
@@ -16,6 +18,11 @@ public class ALMDB {
     private final DBHelper dbhelper;
     private SQLiteDatabase db;
 
+    /**
+     * Initializes DB
+     *
+     * @param c
+     */
     public ALMDB(Context c) {
         context = c;
         dbhelper = new DBHelper(context, Constants.DATABASE_NAME, null,
@@ -35,6 +42,13 @@ public class ALMDB {
         }
     }
 
+    /**
+     * Inserts record into DB
+     *
+     * @param event_type
+     * @param event_specific_data
+     * @return
+     */
     public long insertdiary(String event_type, String event_specific_data) {
         try {
             ContentValues newTaskValue = new ContentValues();
@@ -50,6 +64,11 @@ public class ALMDB {
         }
     }
 
+    /**
+     * Gets records from DB
+     *
+     * @return
+     */
     public Cursor getdiaries() {
         Cursor c = db.query(Constants.TABLE_NAME, null, null,
                 null, null, null, null);

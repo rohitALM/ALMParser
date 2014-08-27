@@ -18,13 +18,22 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 /**
+ * Receives event change information - Pushes to DB and webservice endpoint
+ *
  * Created by Rohit on 17-06-2014.
  */
 public class ParserBroadCastReceiver extends BroadcastReceiver {
 
+    //Change URL to that of CEP Server
+    private static final String cepServerURI = "http://141.28.129.17:8080/ALMCep/webapi/myresource/";
     ALMDB dba;
 
-
+    /**
+     * Called by Android system when changes happen to which the receiver is registered
+     *
+     * @param context
+     * @param intent
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -47,7 +56,12 @@ public class ParserBroadCastReceiver extends BroadcastReceiver {
 
     }
 
-
+    /**
+     * Pushes Event information to webservice end point
+     *
+     * @param eventType
+     * @param eventInformation
+     */
     private void pushMessageToCEP(String eventType, String eventInformation) {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -55,7 +69,8 @@ public class ParserBroadCastReceiver extends BroadcastReceiver {
         StrictMode.setThreadPolicy(policy);
 
         HttpClient httpClient = new DefaultHttpClient();
-        HttpPost post = new HttpPost("http://141.28.129.17:8080/ALMCep/webapi/myresource/");
+
+        HttpPost post = new HttpPost(cepServerURI);
         post.setHeader("content-type", "application/json; charset=UTF-8");
 
         JSONObject dato = new JSONObject();
