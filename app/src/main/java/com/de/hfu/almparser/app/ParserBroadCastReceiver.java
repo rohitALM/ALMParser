@@ -29,6 +29,13 @@ public class ParserBroadCastReceiver extends BroadcastReceiver {
     ALMDB dba;
 
     /**
+     * AN-15
+     */
+    private void demo() {
+
+    }
+
+    /**
      * Called by Android system when changes happen to which the receiver is registered
      *
      * @param context
