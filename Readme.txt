@@ -11,4 +11,5 @@ Run -> App
 Note - Update CEP Server address in ParserBroadCastReceiver.java before deploying app
 Parameter Name to update - cepServerURI
 
--------------------
+--------
+Jenkins Configured

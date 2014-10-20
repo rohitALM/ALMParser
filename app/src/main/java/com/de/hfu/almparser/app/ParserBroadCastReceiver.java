@@ -63,6 +63,9 @@ public class ParserBroadCastReceiver extends BroadcastReceiver {
 
     }
 
+    private void toolDemo() {
+    }
+
     /**
      * Pushes Event information to webservice end point
      *
